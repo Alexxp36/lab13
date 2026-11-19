@@ -1,0 +1,83 @@
+@APIDemoLab_HostAddress = https://localhost:7135
+@gradeId = 1
+@courseId = 1
+
+GET {{APIDemoLab_HostAddress}}/openapi/v1.json
+Accept: application/json
+
+###
+
+GET {{APIDemoLab_HostAddress}}/weatherforecast/
+Accept: application/json
+
+### Usa en gradeId y courseId los ID devueltos por las peticiones POST.
+
+POST {{APIDemoLab_HostAddress}}/api/grades
+Content-Type: application/json
+
+{"name":"Primero","description":"Primer grado"}
+
+###
+
+POST {{APIDemoLab_HostAddress}}/api/courses
+Content-Type: application/json
+
+{"name":"Matemática","credit":4}
+
+###
+
+GET {{APIDemoLab_HostAddress}}/api/grades
+
+###
+
+GET {{APIDemoLab_HostAddress}}/api/grades/{{gradeId}}
+
+###
+
+PUT {{APIDemoLab_HostAddress}}/api/grades/{{gradeId}}
+Content-Type: application/json
+
+{"name":"Primero","description":"Primer grado actualizado"}
+
+###
+
+DELETE {{APIDemoLab_HostAddress}}/api/grades/{{gradeId}}
+
+###
+
+GET {{APIDemoLab_HostAddress}}/api/courses
+
+###
+
+GET {{APIDemoLab_HostAddress}}/api/courses/{{courseId}}
+
+###
+
+PUT {{APIDemoLab_HostAddress}}/api/courses/{{courseId}}
+Content-Type: application/json
+
+{"name":"Matemática aplicada","credit":5}
+
+###
+
+DELETE {{APIDemoLab_HostAddress}}/api/courses/{{courseId}}
+
+###
+
+GET {{APIDemoLab_HostAddress}}/api/students?firstName=Ana&lastName=Perez&email=correo
+
+###
+
+GET {{APIDemoLab_HostAddress}}/api/students/by-grade?firstName=Ana&grade=Primero
+
+###
+
+GET {{APIDemoLab_HostAddress}}/api/enrollments/by-course?course=Matem
+
+###
+
+GET {{APIDemoLab_HostAddress}}/api/enrollments/by-grade?grade=Primero
+
+###
+
+###
